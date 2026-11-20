@@ -4,120 +4,412 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | HYBRA VOID</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #07090e;
-            --bg-card: #0f131c;
-            --primary: #38bdf8;
-            --secondary: #818cf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --bg-main: #05070c;
+            --bg-surface: rgba(15, 20, 32, 0.75);
+            --bg-surface-hover: rgba(22, 30, 48, 0.9);
+            --accent: #38bdf8;
+            --accent-secondary: #818cf8;
+            --accent-glow: rgba(56, 189, 248, 0.25);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.8;
-            background-image: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.07) 0%, transparent 45%);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.75;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.1) 0%, transparent 45%);
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 8%;
-            background: rgba(7, 9, 14, 0.9);
-            border-bottom: 1px solid var(--border-color);
+
+        /* Responsive Glass Navbar */
+        header {
             position: sticky;
             top: 0;
-            backdrop-filter: blur(10px);
+            z-index: 100;
+            background: rgba(5, 7, 12, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 5%;
         }
-        .logo { font-weight: 900; font-size: 1.3rem; color: var(--primary); text-decoration: none; letter-spacing: 1px; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        .container { max-width: 950px; margin: 3.5rem auto; padding: 0 6%; }
-        .header-box { margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
-        .header-box h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; }
-        .header-box span { color: var(--primary); font-size: 0.9rem; font-weight: 600; }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.9rem;
         }
-        .card h2 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
-        .card p, .card li { color: var(--text-muted); font-size: 0.98rem; margin-bottom: 0.7rem; }
-        .card ul { padding-left: 1.5rem; }
-        footer { text-align: center; padding: 2.5rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; margin-top: 3rem; }
-        a.inline-link { color: var(--primary); text-decoration: none; }
-        a.inline-link:hover { text-decoration: underline; }
+
+        @media (min-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #05070c;
+            font-weight: 900;
+            font-size: 1rem;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .nav-pills a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-pills a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-pills a.active {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.2));
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        /* Hero Banner */
+        .hero {
+            max-width: 900px;
+            margin: 3.5rem auto 2.5rem;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .meta-info {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        /* Content Cards */
+        .content {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .clause-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.8rem;
+            backdrop-filter: blur(12px);
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .clause-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(56, 189, 248, 0.35);
+            background: var(--bg-surface-hover);
+        }
+
+        .clause-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .clause-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .clause-card h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .clause-card p {
+            color: var(--text-secondary);
+            font-size: 0.96rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .clause-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .clause-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-top: 0.5rem;
+        }
+
+        .clause-card li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .clause-card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        code {
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.88rem;
+        }
+
+        a.text-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(56, 189, 248, 0.5);
+            transition: 0.2s;
+        }
+
+        a.text-link:hover {
+            color: #fff;
+            border-bottom-style: solid;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            background: rgba(5, 7, 12, 0.9);
+            padding: 2.5rem 5%;
+            text-align: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="index.html" class="logo">HYBRA VOID</a>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="terms.html" class="active">Terms of Service</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="https://discord.gg/j8MuzG97V" target="_blank">Support Server</a>
+<header>
+    <div class="nav-container">
+        <a href="https://yaseen212.github.io/Hybra-void-bot-site/" class="brand">
+            <div class="brand-icon">H</div>
+            <span>HYBRA VOID</span>
+        </a>
+        <nav class="nav-pills">
+            <a href="https://yaseen212.github.io/Hybra-void-bot-site/">Home</a>
+            <a href="https://yaseen212.github.io/Hybra-terms/" class="active">Terms</a>
+            <a href="https://yaseen212.github.io/Hybra-privacy/">Privacy</a>
+            <a href="https://discord.gg/j8MuzG97V" target="_blank">Support</a>
+        </nav>
     </div>
-</nav>
+</header>
 
-<div class="container">
-    <div class="header-box">
-        <h1>Terms of Service</h1>
-        <span>Effective Date: November 19, 2026 | Version 2.0</span>
+<section class="hero">
+    <div class="badge">⚖️ Legal Agreement</div>
+    <h1>Terms of Service</h1>
+    <p>Please read these terms carefully before adding or interacting with Hybra Void in your Discord community.</p>
+    <div class="meta-info">Effective Date: November 20, 2026 • Version 2.1</div>
+</section>
+
+<main class="content">
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">01</div>
+            <h2>Acceptance of Terms</h2>
+        </div>
+        <p>By inviting, accessing, or using the <strong>Hybra Void</strong> Discord application ("the Bot") or visiting our official web portals, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service. If you do not agree with any provision herein, you must immediately remove the Bot from your server and discontinue use.</p>
     </div>
 
-    <div class="card">
-        <h2>1. Acceptance of Terms</h2>
-        <p>By inviting, accessing, or using the <strong>Hybra Void</strong> Discord application ("the Bot") or visiting our website, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service. If you do not agree with any part of these terms, you must immediately remove the Bot from your Discord server and cease all usage.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">02</div>
+            <h2>Discord Platform Compliance</h2>
+        </div>
+        <p>All users and server administrators utilizing Hybra Void must strictly adhere to <a href="https://discord.com/terms" target="_blank" class="text-link">Discord's Terms of Service</a> and <a href="https://discord.com/guidelines" target="_blank" class="text-link">Discord's Community Guidelines</a>. Hybra Void is built to enhance server security and engagement and must never be used to facilitate policy violations.</p>
     </div>
 
-    <div class="card">
-        <h2>2. Compliance with Discord Guidelines</h2>
-        <p>All users and server administrators utilizing Hybra Void must strictly adhere to <a href="https://discord.com/terms" target="_blank" class="inline-link">Discord's Terms of Service</a> and <a href="https://discord.com/guidelines" target="_blank" class="inline-link">Discord's Community Guidelines</a>. Hybra Void is designed to assist in server moderation and engagement and must never be used to violate Discord policies.</p>
-    </div>
-
-    <div class="card">
-        <h2>3. Permitted Use & Restrictions</h2>
-        <p>You are granted a limited, non-exclusive, revocable license to use Hybra Void for legitimate community management. You agree <strong>NOT</strong> to:</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">03</div>
+            <h2>Permitted Use & Prohibited Conduct</h2>
+        </div>
+        <p>You are granted a limited, non-exclusive, revocable license to operate Hybra Void for legitimate community management. You explicitly agree <strong>NOT</strong> to:</p>
         <ul>
-            <li>Attempt to exploit, reverse-engineer, DDoS, or disrupt the Bot's infrastructure, APIs, or hosting environment.</li>
-            <li>Spam slash commands or abuse the integrated AI features (<code>/ask</code>, <code>/roast</code>) to generate harmful, illegal, or abusive content.</li>
-            <li>Use automated scripts, self-bots, or macros to farm virtual currency (<code>Hybra Credits</code>) or experience points (<code>XP</code>).</li>
-            <li>Misuse moderation commands (<code>/nuke</code>, <code>/lockdown</code>, <code>/ban</code>) to grief or destroy communities.</li>
+            <li>Exploit, reverse-engineer, DDoS, or disrupt the Bot's infrastructure, APIs, or hosting environment.</li>
+            <li>Spam slash commands or abuse integrated AI modules (<code>/ask</code>, <code>/roast</code>) to generate harmful, illegal, or abusive outputs.</li>
+            <li>Deploy automated scripts, self-bots, or macros to farm virtual currency (<code>Hybra Credits</code>) or experience points (<code>XP</code>).</li>
+            <li>Misuse administrative tools (<code>/nuke</code>, <code>/lockdown</code>, <code>/ban</code>) to grief or damage Discord communities.</li>
         </ul>
     </div>
 
-    <div class="card">
-        <h2>4. AI Moderation & Automated Actions</h2>
-        <p>Hybra Void includes automated AI-powered moderation and anti-raid shields (such as <strong>FireProof</strong> and automated profanity detection). Server owners and administrators are solely responsible for configuring permissions, log channels, and moderation thresholds. The developers of Hybra Void are not liable for accidental message deletions, timeouts, bans, or role removals triggered by server configurations.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">04</div>
+            <h2>AI Moderation & Security Shields</h2>
+        </div>
+        <p>Hybra Void provides automated AI moderation and anti-raid protection systems (including <strong>FireProof</strong> and automated content filtering). Server owners and staff are solely responsible for configuring role hierarchies, permissions, and log channels. The Hybra Void team is not liable for unintended message deletions, timeouts, bans, or role removals resulting from server configurations.</p>
     </div>
 
-    <div class="card">
-        <h2>5. Virtual Economy & Digital Items</h2>
-        <p>Features such as <code>Hybra Credits</code>, daily rewards, levels, and XP hold <strong>zero real-world monetary value</strong>. They cannot be exchanged, sold, or redeemed for real currency or external goods. We reserve the right to reset, adjust, or modify economy balances at any time.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">05</div>
+            <h2>Virtual Economy & Progression</h2>
+        </div>
+        <p>Digital balances such as <code>Hybra Credits</code>, daily rewards, levels, and XP carry <strong>zero real-world monetary value</strong>. They cannot be traded, sold, or redeemed for real currency or external goods. We reserve the right to rebalance or reset economy metrics at any time.</p>
     </div>
 
-    <div class="card">
-        <h2>6. Service Availability & Termination</h2>
-        <p>Hybra Void is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis. While we strive for 99.9% uptime, we do not guarantee uninterrupted service. We reserve the right to blacklist any user or server from accessing Hybra Void without prior notice if we detect abuse, malicious activity, or a breach of these Terms.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">06</div>
+            <h2>Availability & Access Termination</h2>
+        </div>
+        <p>Hybra Void is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of uninterrupted uptime. We reserve the right to restrict or blacklist any user or server from accessing Hybra Void without prior notice if abuse, malicious activity, or a breach of these Terms is detected.</p>
     </div>
 
-    <div class="card">
-        <h2>7. Changes to Terms & Contact</h2>
-        <p>We may revise these Terms of Service at any time to reflect new features or legal requirements. Continued use of the Bot after updates constitutes acceptance of the revised terms. For questions, bug reports, or appeals, please contact our team through the official <a href="https://discord.gg/j8MuzG97V" target="_blank" class="inline-link">HYBRA'S RISE Support Server</a>.</p>
+    <div class="clause-card">
+        <div class="clause-header">
+            <div class="clause-num">07</div>
+            <h2>Revisions & Official Support</h2>
+        </div>
+        <p>We may update these Terms of Service periodically as new features are deployed. Continued use of the Bot after updates constitutes acceptance of the revised terms. For inquiries, bug reports, or appeals, reach out via our official <a href="https://discord.gg/j8MuzG97V" target="_blank" class="text-link">HYBRA'S RISE Support Server</a>.</p>
     </div>
-</div>
+</main>
 
 <footer>
-    © 2026 <strong>HYBRA'S RISE</strong> — Hybra Void Development Team. All Rights Reserved.
+    <div class="footer-nav">
+        <a href="https://yaseen212.github.io/Hybra-void-bot-site/">Main Website</a>
+        <a href="https://yaseen212.github.io/Hybra-terms/">Terms of Service</a>
+        <a href="https://yaseen212.github.io/Hybra-privacy/">Privacy Policy</a>
+        <a href="https://discord.gg/j8MuzG97V" target="_blank">Discord Server</a>
+    </div>
+    <p class="copyright">© 2026 <strong>HYBRA'S RISE</strong> — Hybra Void Development Team. All Rights Reserved.</p>
 </footer>
 
 </body>
